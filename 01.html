@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba</title>
+</head>
+<body>
+    <div id = "app">
+        <h1>{{titulo}}</h1>
+        <input type="text" @keyup.enter = "nuevoMetodo" v-model = "recibe">
+        <button @click ="nuevoMetodo">Add</button>
+        <br><br>
+        <input type="number" min = "0" v-model = "changeQuantiti" value = "0">
+        <ul>
+            <li v-for="elements of arregloChingon">{{elements.nombre}}:
+                <input type="number" min = "0" v-model.number="elements.cantidad" >
+                <button @click = "elements.cantidad++">+</button>
+                <button @click = "if(elements.cantidad - 1 >= 0 )
+                    elements.cantidad--">-</button>
+                <span v-if = "elements.cantidad === 0"> - sin Stock</span>
+            </li>
+        </ul>
+        <h4>Total: {{sumarInventario}}</h4>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="01.js"></script>
+</body>
+</html>
