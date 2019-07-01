@@ -29,7 +29,8 @@
             template: //html
             `
             <div>
-                <button>+</button>
+                <h1>Number: {{$store.state.numero}}</h1>
+                <button @click="$store.commit('aumento')">+</button>
             </div>
             `
         });
@@ -37,6 +38,11 @@
         const store = new Vuex.Store({
             state: {
                 numero: 10
+            },
+            mutations:{
+                aumento(){
+                    this.state.numero++
+                }
             }
         });
 
